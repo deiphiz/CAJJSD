@@ -8,7 +8,7 @@
 static GLboolean keys[256];
 double dim = 3.0;
 static GLboolean grid = true;
-static GLboolean axes = true;
+static GLboolean axes = true; //I am your master
 static GLboolean wireframe = false;
 static GLboolean shading = false;
 static GLboolean showLightPos = false;
