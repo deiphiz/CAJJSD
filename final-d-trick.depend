@@ -21,3 +21,7 @@
 1426320928 c:\users\erico\desktop\freeglut\include\gl\freeglut_ext.h
 	<stdarg.h>
 
+1431694905 source:c:\users\erico\desktop\cajjsd\main.cpp
+	<GL/freeglut.h>
+	<math.h>
+
