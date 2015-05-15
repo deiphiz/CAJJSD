@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1431674941 source:c:\users\erico\desktop\final-d-trick\main.cpp
+	<GL/freeglut.h>
+	<math.h>
+
+1426320928 c:\users\erico\desktop\freeglut\include\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1426320928 c:\users\erico\desktop\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426320928 c:\users\erico\desktop\freeglut\include\gl\freeglut_ext.h
+	<stdarg.h>
+
