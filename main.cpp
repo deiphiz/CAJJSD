@@ -69,8 +69,8 @@ glVertex3f(-1,.1,-1);//1a
 glEnd();
 glLoadIdentity();
 glPopMatrix();
-//house floor
 
+//house floor
 glPushMatrix();
 glTranslatef(-.5,.5,-.5);
 glColor3f(1,1,1);
