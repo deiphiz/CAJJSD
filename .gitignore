@@ -30,3 +30,8 @@
 # Directories
 bin/
 obj/
+
+#CodeBlocks stuff
+.cbp
+.depend
+.layout

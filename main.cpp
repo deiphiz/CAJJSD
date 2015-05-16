@@ -127,11 +127,11 @@ glTranslatef(.5,0,.5);
 glBegin(GL_TRIANGLE_FAN);
 glColor3f(.6,.6,.7);
 glVertex3f(0,.5,0);//0
-glVertex3f(.2,.3,.2);//1
-glVertex3f(.2,.3,-.2);//2
-glVertex3f(-.2,.3,-.2);//3
-glVertex3f(-.2,.3,.2);//4
-glVertex3f(.2,.3,.2);//5`
+glVertex3f(.15,.3,.15);//1
+glVertex3f(.15,.3,-.15);//2
+glVertex3f(-.15,.3,-.15);//3
+glVertex3f(-.15,.3,.15);//4
+glVertex3f(.15,.3,.15);//5`
 glEnd();
 glLoadIdentity();
 glPopMatrix();
@@ -160,16 +160,16 @@ glPushMatrix();
 glTranslatef(.5,0,.5);
 glBegin(GL_QUAD_STRIP);
 glColor3f(.5,.3,0);
-glVertex3f(.29,.15,.29);//1
-glVertex3f(.29,.19,.29);//2
-glVertex3f(.29,.15,-.29);//3
-glVertex3f(.29,.19,-.29);//4
-glVertex3f(-.29,.15,-.29);//5
-glVertex3f(-.29,.19,-.29);//6
-glVertex3f(-.29,.15,.29);//7
-glVertex3f(-.29,.19,.29);//8`
-glVertex3f(.29,.15,.29);//1
-glVertex3f(.29,.19,.29);//2
+glVertex3f(.19,.15,.19);//1
+glVertex3f(.19,.19,.19);//2
+glVertex3f(.19,.15,-.19);//3
+glVertex3f(.19,.19,-.19);//4
+glVertex3f(-.19,.15,-.19);//5
+glVertex3f(-.19,.19,-.19);//6
+glVertex3f(-.19,.15,.19);//7
+glVertex3f(-.19,.19,.19);//8`
+glVertex3f(.19,.15,.19);//1
+glVertex3f(.19,.19,.19);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
@@ -179,17 +179,17 @@ glPushMatrix();
 glTranslatef(.5,0,.5);
 glBegin(GL_QUADS);
 glColor3f(.5,.3,0);
-glVertex3f(.29,.19,.29);//2
-glVertex3f(.29,.19,-.29);//4
-glVertex3f(-.29,.19,-.29);//6
-glVertex3f(-.29,.19,.29);//8`
+glVertex3f(.19,.19,.19);//2
+glVertex3f(.19,.19,-.19);//4
+glVertex3f(-.19,.19,-.19);//6
+glVertex3f(-.19,.19,.19);//8`
 glEnd();
 glLoadIdentity();
 glPopMatrix();
 
 //umbrela table foot bottom lefft
 glPushMatrix();
-glTranslatef(.3,0,.7);
+glTranslatef(.36,0,.65);
 glBegin(GL_QUAD_STRIP);
 glColor3f(.5,.3,0);
 glVertex3f(.01,0,.01);//1
@@ -208,7 +208,7 @@ glPopMatrix();
 
 //umbrela table foot bottom right
 glPushMatrix();
-glTranslatef(.7,0,.7);
+glTranslatef(.65,0,.65);
 glBegin(GL_QUAD_STRIP);
 glColor3f(.5,.3,0);
 glVertex3f(.01,0,.01);//1
@@ -227,7 +227,7 @@ glPopMatrix();
 
 //umbrela table foot top right
 glPushMatrix();
-glTranslatef(.7,0,.3);
+glTranslatef(.65,0,.35);
 glBegin(GL_QUAD_STRIP);
 glColor3f(.5,.3,0);
 glVertex3f(.01,0,.01);//1
@@ -246,7 +246,7 @@ glPopMatrix();
 
 //umbrela table foot top left
 glPushMatrix();
-glTranslatef(.3,0,.3);
+glTranslatef(.35,0,.35);
 glBegin(GL_QUAD_STRIP);
 glColor3f(.5,.3,0);
 glVertex3f(.01,0,.01);//1
@@ -262,31 +262,35 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+<<<<<<< HEAD
 
 //chair 1
+=======
+//chair 1 bot mid
+>>>>>>> origin/master
 glPushMatrix();
-glTranslatef(.5,.05,.9);
+glTranslatef(.5,.05,.8);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
 
 //chair 2
 glPushMatrix();
-glTranslatef(.5,.05,.1);
+glTranslatef(.5,.05,.2);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
 
 //chair 3
 glPushMatrix();
-glTranslatef(.1,.05,.5);
+glTranslatef(.19,.05,.5);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
 
 //chair 4
 glPushMatrix();
-glTranslatef(.9,.05,.5);
+glTranslatef(.8,.05,.5);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
