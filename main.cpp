@@ -69,12 +69,55 @@ glVertex3f(-1,.1,-1);//1a
 glEnd();
 glLoadIdentity();
 glPopMatrix();
-//house floor
 
+//house floor
 glPushMatrix();
 glTranslatef(-.5,.5,-.5);
 glColor3f(1,1,1);
 glutSolidCube(.8);
+glLoadIdentity();
+glPopMatrix();
+
+//mini pool thingy
+glPushMatrix();
+glBegin(GL_TRIANGLE_FAN);
+glColor4f(.5,72, 118, 255);
+glVertex3f(.5,.01,.5);
+glVertex3f(.5,.01,.1);
+glVertex3f(.450,.01,.150);
+glVertex3f(.4,.01,.2);
+glVertex3f(.350,.01,.250);
+glVertex3f(.3,.01,.3);
+glVertex3f(.250,.01,.350);
+glVertex3f(.2,.01,.4);
+glVertex3f(.150,.01,.450);
+glVertex3f(.1,.01,.5);
+glVertex3f(.150,.01,.550);
+glVertex3f(.2,.01,.6);
+glVertex3f(.250,.01,.650);
+glVertex3f(.3,.01,.7);
+glVertex3f(.350,.01,.750);
+glVertex3f(.4,.01,.8);
+glVertex3f(.450,.01,.850);
+glVertex3f(.5,.01,.9);
+glVertex3f(.550,.01,.850);
+glVertex3f(.6,.01,.8);
+glVertex3f(.650,.01,.750);
+glVertex3f(.7,.01,.7);
+glVertex3f(.750,.01,.650);
+glVertex3f(.8,.01,.6);
+glVertex3f(.850,.01,.550);
+glVertex3f(.9,.01,.5);
+glVertex3f(.850,.01,.450);
+glVertex3f(.8,.01,.4);
+glVertex3f(.750,.01,.350);
+glVertex3f(.7,.01,.3);
+glVertex3f(.650,.01,.250);
+glVertex3f(.6,.01,.2);
+glVertex3f(.550,.01,.150);
+glVertex3f(.5,.01,.1);
+
+glEnd();
 glLoadIdentity();
 glPopMatrix();
 
