@@ -262,12 +262,8 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
-<<<<<<< HEAD
 
 //chair 1
-=======
-//chair 1 bot mid
->>>>>>> origin/master
 glPushMatrix();
 glTranslatef(.5,.05,.8);
 glutSolidCube(.1);
