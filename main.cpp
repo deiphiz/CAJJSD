@@ -22,15 +22,22 @@ int fov = 55;
 int asp = 1;
 void glLoadRotations(void);
 //lightPositions
-static GLfloat lightX = 3;
+static GLfloat lightX = -5;
 static GLfloat lightY = 3;
 static GLfloat lightZ = 5;
+//rotation speed
+static GLfloat rotateSpeed = 1.2;
+//track speed
+static GLfloat trackSpeed = 0.05;
+//zoom speed
+static GLfloat zoomSpeed = 0.05;
 
 //code inside this function only
 void drawPrimitives()
 {
-    //grounda
-    glPushMatrix();
+
+//grounda
+/*glPushMatrix();
 glBegin(GL_QUADS);
 glColor3f(0,1,0);
 glVertex3f(-1,-0.1,-1);//1b
@@ -39,7 +46,7 @@ glVertex3f(1,-0.1,1);//3b
 glVertex3f(-1,-0.1,1);//4b
 glEnd();
 glLoadIdentity();
-glPopMatrix();
+glPopMatrix();*/
 
 glPushMatrix();
 //groundb
@@ -52,8 +59,9 @@ glVertex3f(-1,0,1);//4a
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+
 // side matrix
-glPushMatrix();
+/*glPushMatrix();
 glBegin(GL_QUAD_STRIP);
 glColor3f(0.6,.3,0);
 glVertex3f(-1,0,-1);//1b
@@ -68,15 +76,7 @@ glVertex3f(-1,0,-1);//1b
 glVertex3f(-1,.1,-1);//1a
 glEnd();
 glLoadIdentity();
-glPopMatrix();
-
-//house floor
-glPushMatrix();
-glTranslatef(-.5,.5,-.5);
-glColor3f(1,1,1);
-glutSolidCube(.8);
-glLoadIdentity();
-glPopMatrix();
+glPopMatrix();*/
 
 //mini pool thingy
 glPushMatrix();
@@ -121,13 +121,6 @@ glEnd();
 glLoadIdentity();
 glPopMatrix();
 
-//uuper cubes
-glPushMatrix();
-glTranslatef(-.5,1,-.5);
-glColor3f(1,1,1);
-glutSolidCube(.5);
-glLoadIdentity();
-glPopMatrix();
 //umbrella
 glPushMatrix();
 glTranslatef(.5,0,.5);
@@ -142,6 +135,7 @@ glVertex3f(.15,.3,.15);//5`
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+
 //umbrela stand-ish
 glPushMatrix();
 glTranslatef(.5,0,.5);
@@ -211,6 +205,7 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+
 //umbrela table foot bottom right
 glPushMatrix();
 glTranslatef(.65,0,.65);
@@ -229,6 +224,7 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+
 //umbrela table foot top right
 glPushMatrix();
 glTranslatef(.65,0,.35);
@@ -247,6 +243,7 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+
 //umbrela table foot top left
 glPushMatrix();
 glTranslatef(.35,0,.35);
@@ -265,24 +262,32 @@ glVertex3f(.01,.15,.01);//2
 glEnd();
 glLoadIdentity();
 glPopMatrix();
+<<<<<<< HEAD
+
+//chair 1
+=======
 //chair 1 bot mid
+>>>>>>> origin/master
 glPushMatrix();
 glTranslatef(.5,.05,.8);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
+
 //chair 2
 glPushMatrix();
 glTranslatef(.5,.05,.2);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
+
 //chair 3
 glPushMatrix();
 glTranslatef(.19,.05,.5);
 glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
+
 //chair 4
 glPushMatrix();
 glTranslatef(.8,.05,.5);
@@ -290,16 +295,31 @@ glutSolidCube(.1);
 glLoadIdentity();
 glPopMatrix();
 
-
-
-
-
-
-
-
-
-
-
+//pagoda base
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3f(1, 1, 1);
+    glVertex3f(0.7, 0, -1);
+    glVertex3f(0.55, 0.07, -1);
+    glVertex3f(0.7, 0, 0);
+    glVertex3f(0.55, 0.07, 0);
+    glVertex3f(0.1, 0, 0);
+    glVertex3f(0.1, 0.07, 0);
+    glVertex3f(0.1, 0, -0.15);
+    glVertex3f(0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0, -0.15);
+    glVertex3f(-0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0, 0);
+    glVertex3f(-0.1, 0.07, 0);
+    glVertex3f(-0.7, 0, 0);
+    glVertex3f(-0.55, 0.07, 0);
+    glVertex3f(-0.7, 0, -1);
+    glVertex3f(-0.55, 0.07, -1);
+    glVertex3f(0.7, 0, -1);
+    glVertex3f(0.55, 0.07, -1);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
 
 }
 
@@ -415,6 +435,7 @@ void display()
 
 void glLoadRotations()
 {
+  glTranslatef(track[0], track[1], 0);
   if (toggleMode) {
     double Ex = -2*dim*Sin(th)*Cos(ph);
     double Ey = +2*dim        *Sin(ph);
@@ -425,7 +446,6 @@ void glLoadRotations()
     glRotatef(ph,1,0,0);
     glRotatef(th,0,1,0);
   }
-  glTranslatef(track[0], track[1], 0);
   glScalef(dolly,dolly,dolly);
 }
 
@@ -487,32 +507,30 @@ void event_keyboardUp(unsigned char key, int x, int y)
         keys[key] = false;
 }
 
-
-
 void idle()
 {
     //w
-    if (keys[119]==true)
+    if (keys[119]==true || keys[87]==true)
     {
-        ph += 0.2;
+        ph += rotateSpeed;
         glutPostRedisplay();
     }
     //a
-    if (keys[97]==true)
+    if (keys[97]==true || keys[65]==true)
     {
-        th -= 0.2;
+        th -= rotateSpeed;
         glutPostRedisplay();
     }
     //s
-   if (keys[115]==true)
+   if (keys[115]==true || keys[83]==true)
    {
-       ph -= 0.2;
+       ph -= rotateSpeed;
        glutPostRedisplay();
    }
     //d
-   if (keys[100]==true)
+   if (keys[100]==true || keys[68]==true)
    {
-       th += 0.2;
+       th += rotateSpeed;
        glutPostRedisplay();
    }
     //1
@@ -547,43 +565,42 @@ void idle()
     }
     if (keys[61] || keys[43])
     {
-        dolly += 0.05;
+        dolly += zoomSpeed;
         glutPostRedisplay();
     }
 
     if (keys[45] || keys[95])
     {
-        dolly -= 0.05;
+        dolly -= zoomSpeed;
         glutPostRedisplay();
     }
 
     if (skeys[0])
     {
-        track[0] -= 0.05;
+        track[0] -= trackSpeed;
         glutPostRedisplay();
     }
 
     if (skeys[3])
     {
-        track[0] += 0.05;
+        track[0] += trackSpeed;
         glutPostRedisplay();
     }
     if (skeys[1])
     {
-        track[1] += 0.05;
+        track[1] += trackSpeed;
         glutPostRedisplay();
     }
     if (skeys[2])
     {
-        track[1] -= 0.05;
+        track[1] -= trackSpeed;
         glutPostRedisplay();
     }
 
 
    if(ph > 360.0) ph -= 360.0;
    if(th > 360.0) th -= 360.0;
-
-
+   Sleep(16.6666);
 }
 
 void event_keyboardSpec(int key, int x, int y)
@@ -613,9 +630,10 @@ void event_keyboardUpSpec(int key, int x, int y)
 
 void init(void)
 {
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_BLEND);
     glClearColor(0.0, 0.0, 0.0, 0.0);
+
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     //set lighting intensity and color
     glEnable(GL_NORMALIZE);
@@ -644,14 +662,13 @@ void init(void)
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 
     glShadeModel(GL_SMOOTH);
-
-
 }
+
 int main(int argc,char* argv[])
 {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-  glutInitWindowSize(900, 900);
+  glutInitWindowSize(600, 600);
   glutInitWindowPosition(0, 0);
   glutCreateWindow("OpenGL");
   init();
