@@ -32,6 +32,6 @@ bin/
 obj/
 
 #CodeBlocks stuff
-.cbp
-.depend
-.layout
+*.cbp
+*.depend
+*.layout
