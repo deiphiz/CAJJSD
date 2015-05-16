@@ -263,10 +263,15 @@ glEnd();
 glLoadIdentity();
 glPopMatrix();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 //chair 1
 =======
 //chair 1 bot mid
+>>>>>>> origin/master
+=======
+
+//chair 1
 >>>>>>> origin/master
 glPushMatrix();
 glTranslatef(.5,.05,.8);
