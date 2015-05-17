@@ -7,8 +7,8 @@
 
 static GLboolean keys[256];
 double dim = 3.0;
-static GLboolean grid = true;
-static GLboolean axes = true; //I am your master
+static GLboolean grid = false;
+static GLboolean axes = false; //I am your master
 static GLboolean wireframe = false;
 static GLboolean shading = false;
 static GLboolean showLightPos = false;
@@ -293,9 +293,9 @@ glBegin(GL_TRIANGLE_FAN);
 glColor4ub(0, 51, 204, 128);
 glVertex3f(-.5,.001,.5);
 glVertex3f(-.3,.001,.2);
-glVertex3f(-.15,.001,.4);
+glVertex3f(-.15,.001,.5);
 glVertex3f(-.15,.001,.6);
-glVertex3f(-.3,.001,.8);
+glVertex3f(-.3,.001,.85);
 glVertex3f(-.7,.001,.8);
 glVertex3f(-.85,.001,.6);
 glVertex3f(-.85,.001,.4);
@@ -1148,7 +1148,7 @@ int main(int argc,char* argv[])
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
   glutInitWindowSize(600, 600);
   glutInitWindowPosition(0, 0);
-  glutCreateWindow("OpenGL");
+  glutCreateWindow("JJSD_mp3");
   init();
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
