@@ -49,15 +49,44 @@ glLoadIdentity();
 glPopMatrix();
 glPushMatrix();*/
 
+//grounda
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3f(0,1,0);
+    glVertex3f(-1,-0.0001,0);
+    glVertex3f(1,-0.0001,0);
+    glVertex3f(1,-0.0001,1);
+    glVertex3f(-1,-0.0001,1);
+
+    glColor4f(0,0.8,0,0.5);
+    for(GLfloat i=0; i<1; i+=0.1)
+    {
+        glVertex3f(-1,-0.00009,i);
+        glVertex3f(1,-0.00009,i);
+        glVertex3f(1,-0.00009,i+0.05);
+        glVertex3f(-1,-0.00009,i+0.05);
+    }
+    glColor4f(0,0.7,0,0.5);
+    for(GLfloat i=-1; i<1; i+=0.1)
+    {
+        glVertex3f(i,-0.00008,0);
+        glVertex3f(i+0.05,-0.00008,0);
+        glVertex3f(i+0.05,-0.00008,1);
+        glVertex3f(i,-0.00008,1);
+    }
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
 //groundb
 glPushMatrix();
 glBegin(GL_QUADS);
-glColor3f(0,1,0);
-glVertex3f(-1,-0.0001,-1);//1a
-glVertex3f(1,-0.0001,-1);//2a
-glVertex3f(1,-0.0001,1);//3a
-glVertex3f(-1,-0.0001,1);//4a
-glEnd();
+    glColor3ub(102, 102, 61);
+    glVertex3f(-1,-0.0001,-1);//1a
+    glVertex3f(1,-0.0001,-1);//2a
+    glVertex3f(1,-0.0001,0);//3a
+    glVertex3f(-1,-0.0001,0);//4a
+    glEnd();
 glLoadIdentity();
 glPopMatrix();
 
@@ -328,6 +357,15 @@ glBegin(GL_QUADS);
     glVertex3f(0.55, 0.07, -1);
     glVertex3f(0.55, 0.07, -0.15);
     glVertex3f(-0.55, 0.07, -0.15);
+
+    glColor3ub(230, 184, 115);
+    for(GLfloat i=-0.55; i<0.54; i+=0.1)
+    {
+        glVertex3f(i, 0.0701, -1);
+        glVertex3f(i+0.05, 0.0701, -1);
+        glVertex3f(i+0.05, 0.0701, -0.15);
+        glVertex3f(i, 0.0701, -0.15);
+    }
 glEnd();
 glLoadIdentity();
 glPopMatrix();
@@ -536,7 +574,6 @@ glBegin(GL_QUAD_STRIP);
 glEnd();
 glLoadIdentity();
 glPopMatrix();
-
 }
 
 void switchProjection()
