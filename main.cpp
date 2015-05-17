@@ -37,19 +37,6 @@ void drawPrimitives()
 {
 
 //grounda
-/*glPushMatrix();
-glBegin(GL_QUADS);
-glColor3f(0,1,0);
-glVertex3f(-1,-0.1,-1);//1b
-glVertex3f(1,-0.1,-1);//2b
-glVertex3f(1,-0.1,1);//3b
-glVertex3f(-1,-0.1,1);//4b
-glEnd();
-glLoadIdentity();
-glPopMatrix();
-glPushMatrix();*/
-
-//grounda
 glPushMatrix();
 glBegin(GL_QUADS);
     glColor3f(0,1,0);
@@ -99,23 +86,36 @@ glutSolidCube(1);
 glLoadIdentity();
 glPopMatrix();
 
-// side matrix
-/*glPushMatrix();
+//road
+glPushMatrix();
 glBegin(GL_QUAD_STRIP);
-glColor3f(0.6,.3,0);
-glVertex3f(-1,0,-1);//1b
-glVertex3f(-1,.1,-1);//1a
-glVertex3f(1,0,-1);//2b
-glVertex3f(1,.1,-1);//2a
-glVertex3f(1,0,1);//3b
-glVertex3f(1,.1,1);//3a
-glVertex3f(-1,0,1);//4b
-glVertex3f(-1,.1,1);//4a
-glVertex3f(-1,0,-1);//1b
-glVertex3f(-1,.1,-1);//1a
+    glColor3ub(138, 92, 46);
+    glVertex3f(0.1, 0, -0.15);
+    glVertex3f(-0.1, 0, -0.15);
+    glVertex3f(0.1, 0, 0.3);
+    glVertex3f(-0.1, 0, 0.3);
+    glVertex3f(0.2, 0, 0.5);
+    glVertex3f(0.0, 0, 0.5);
+    glVertex3f(0.2, 0, 1);
+    glVertex3f(0.0, 0, 1);
 glEnd();
 glLoadIdentity();
-glPopMatrix();*/
+glPopMatrix();
+
+//pillars
+for(GLfloat x=-0.8; x<0.81; x+=1.6)
+{
+    for(GLfloat z=-0.8; z<=-0.2; z+=0.2)
+    {
+        glPushMatrix();
+        glTranslatef(x, 0.3, z);
+        glRotatef(90, 1, 0, 0);
+        glColor3ub(102, 153, 153);
+        glutSolidCylinder(0.05, 0.3, 8, 1);
+        glLoadIdentity();
+        glPopMatrix();
+    }
+}
 
 //umbrella
 glPushMatrix();
@@ -274,11 +274,11 @@ glLoadIdentity();
 glPopMatrix();
 
 //chair 3
-glPushMatrix();
+/*glPushMatrix();
 glTranslatef(.19,.05,.5);
 glutSolidCube(.1);
 glLoadIdentity();
-glPopMatrix();
+glPopMatrix();*/
 
 //chair 4
 glPushMatrix();
@@ -559,19 +559,76 @@ glEnd();
 glLoadIdentity();
 glPopMatrix();
 
-//road
+//roof beams
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(102, 51, 0);
+    for(GLfloat i=-1; i<-0.15; i+=0.1)
+    {
+        glVertex3f(-0.55, 0.5, i);
+        glVertex3f(0.55, 0.5, i);
+        glVertex3f(0.55, 0.5, i+0.05);
+        glVertex3f(-0.55, 0.5, i+0.05);
+    }
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//Roof Base
 glPushMatrix();
 glBegin(GL_QUAD_STRIP);
-    glColor3ub(138, 92, 46);
-    glVertex3f(0.1, 0, -0.15);
-    glVertex3f(-0.1, 0, -0.15);
-    glVertex3f(0.1, 0, 0.3);
-    glVertex3f(-0.1, 0, 0.3);
-    glVertex3f(0.2, 0, 0.5);
-    glVertex3f(0.0, 0, 0.5);
-    glVertex3f(0.2, 0, 1);
-    glVertex3f(0.0, 0, 1);
+    glColor3ub(166, 83, 0);
+    glVertex3f(-0.5, 0.7, -0.95);
+    glVertex3f(-0.75, 0.5, -1.2);
+    glVertex3f(0.5, 0.7, -0.95);
+    glVertex3f(0.75, 0.5, -1.2);
+    glVertex3f(0.5, 0.7, -0.2);
+    glVertex3f(0.75, 0.5, 0.05);
+    glVertex3f(-0.5, 0.7, -0.2);
+    glVertex3f(-0.75, 0.5, 0.05);
+    glVertex3f(-0.5, 0.7, -0.95);
+    glVertex3f(-0.75, 0.5, -1.2);
 glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//Roof Sides
+glPushMatrix();
+glBegin(GL_TRIANGLES);
+    glColor3ub(102, 26, 0);
+    glVertex3f(0.5, 1, -0.575);
+    glVertex3f(0.5, 0.7, -0.95);
+    glVertex3f(0.5, 0.7, -0.2);
+
+    glVertex3f(-0.5, 1, -0.575);
+    glVertex3f(-0.5, 0.7, -0.95);
+    glVertex3f(-0.5, 0.7, -0.2);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//Roof top
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(184, 92, 0);
+    glVertex3f(-0.5, 0.7, -0.2);
+    glVertex3f(0.5, 0.7, -0.2);
+    glColor3ub(166, 83, 0);
+    glVertex3f(-0.7, 1, -0.575);
+    glVertex3f(0.7, 1, -0.575);
+    glColor3ub(184, 92, 0);
+    glVertex3f(-0.5, 0.7, -0.95);
+    glVertex3f(0.5, 0.7, -0.95);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//Beam at the top
+glPushMatrix();
+glTranslatef(-0.7,1,-0.575);
+glRotatef(90, 0, 1, 0);
+glColor3ub(102, 26, 0);
+glutSolidCylinder(0.03, 1.4, 8, 1);
 glLoadIdentity();
 glPopMatrix();
 }
