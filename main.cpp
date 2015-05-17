@@ -22,7 +22,7 @@ int fov = 55;
 int asp = 1;
 void glLoadRotations(void);
 //lightPositions
-static GLfloat lightX = -5;
+static GLfloat lightX = 3;
 static GLfloat lightY = 3;
 static GLfloat lightZ = 5;
 //rotation speed
@@ -46,17 +46,27 @@ glVertex3f(1,-0.1,1);//3b
 glVertex3f(-1,-0.1,1);//4b
 glEnd();
 glLoadIdentity();
-glPopMatrix();*/
+glPopMatrix();
+glPushMatrix();*/
 
-glPushMatrix();
 //groundb
+glPushMatrix();
 glBegin(GL_QUADS);
 glColor3f(0,1,0);
-glVertex3f(-1,0,-1);//1a
-glVertex3f(1,0,-1);//2a
-glVertex3f(1,0,1);//3a
-glVertex3f(-1,0,1);//4a
+glVertex3f(-1,-0.0001,-1);//1a
+glVertex3f(1,-0.0001,-1);//2a
+glVertex3f(1,-0.0001,1);//3a
+glVertex3f(-1,-0.0001,1);//4a
 glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//floating island
+glPushMatrix();
+glColor3f(0.6,.3,0);
+glScalef(2, 0.125, 2);
+glTranslatef(0, -0.5127, 0);
+glutSolidCube(1);
 glLoadIdentity();
 glPopMatrix();
 
@@ -77,49 +87,6 @@ glVertex3f(-1,.1,-1);//1a
 glEnd();
 glLoadIdentity();
 glPopMatrix();*/
-
-//mini pool thingy
-glPushMatrix();
-glBegin(GL_TRIANGLE_FAN);
-glColor4f(.5,72, 118, 255);
-glVertex3f(.5,.01,.5);
-glVertex3f(.5,.01,.1);
-glVertex3f(.450,.01,.150);
-glVertex3f(.4,.01,.2);
-glVertex3f(.350,.01,.250);
-glVertex3f(.3,.01,.3);
-glVertex3f(.250,.01,.350);
-glVertex3f(.2,.01,.4);
-glVertex3f(.150,.01,.450);
-glVertex3f(.1,.01,.5);
-glVertex3f(.150,.01,.550);
-glVertex3f(.2,.01,.6);
-glVertex3f(.250,.01,.650);
-glVertex3f(.3,.01,.7);
-glVertex3f(.350,.01,.750);
-glVertex3f(.4,.01,.8);
-glVertex3f(.450,.01,.850);
-glVertex3f(.5,.01,.9);
-glVertex3f(.550,.01,.850);
-glVertex3f(.6,.01,.8);
-glVertex3f(.650,.01,.750);
-glVertex3f(.7,.01,.7);
-glVertex3f(.750,.01,.650);
-glVertex3f(.8,.01,.6);
-glVertex3f(.850,.01,.550);
-glVertex3f(.9,.01,.5);
-glVertex3f(.850,.01,.450);
-glVertex3f(.8,.01,.4);
-glVertex3f(.750,.01,.350);
-glVertex3f(.7,.01,.3);
-glVertex3f(.650,.01,.250);
-glVertex3f(.6,.01,.2);
-glVertex3f(.550,.01,.150);
-glVertex3f(.5,.01,.1);
-
-glEnd();
-glLoadIdentity();
-glPopMatrix();
 
 //umbrella
 glPushMatrix();
@@ -294,7 +261,7 @@ glPopMatrix();
 //pagoda base
 glPushMatrix();
 glBegin(GL_QUAD_STRIP);
-    glColor3f(1, 1, 1);
+    glColor3ub(160, 160, 160);
     glVertex3f(0.7, 0, -1);
     glVertex3f(0.55, 0.07, -1);
     glVertex3f(0.7, 0, 0);
@@ -313,6 +280,259 @@ glBegin(GL_QUAD_STRIP);
     glVertex3f(-0.55, 0.07, -1);
     glVertex3f(0.7, 0, -1);
     glVertex3f(0.55, 0.07, -1);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda porch left
+glPushMatrix();
+glColor3ub(178, 178, 178);
+glBegin(GL_QUADS);
+    glVertex3f(-0.55, 0.07, 0);
+    glVertex3f(-0.55, 0.07, -0.15);
+    glVertex3f(-0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0.07, 0);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda porch right
+glPushMatrix();
+glColor3ub(178, 178, 178);
+glBegin(GL_QUADS);
+    glVertex3f(0.1, 0.07, 0);
+    glVertex3f(0.1, 0.07, -0.15);
+    glVertex3f(0.55, 0.07, -0.15);
+    glVertex3f(0.55, 0.07, 0);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda ramp
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(122, 122, 82);
+    glVertex3f(0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0, 0);
+    glVertex3f(0.1, 0, 0);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda floor
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(255, 204, 128);
+    glVertex3f(-0.55, 0.07, -1);
+    glVertex3f(0.55, 0.07, -1);
+    glVertex3f(0.55, 0.07, -0.15);
+    glVertex3f(-0.55, 0.07, -0.15);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda bottom wall
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(102, 51, 0);
+    glVertex3f(-0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.55, 0.07, -0.15);
+    glVertex3f(-0.55, 0.17, -0.15);
+    glVertex3f(-0.55, 0.07, -1);
+    glVertex3f(-0.55, 0.17, -1);
+    glVertex3f(0.55, 0.07, -1);
+    glVertex3f(0.55, 0.17, -1);
+    glVertex3f(0.55, 0.07, -0.15);
+    glVertex3f(0.55, 0.17, -0.15);
+    glVertex3f(0.1, 0.07, -0.15);
+    glVertex3f(0.1, 0.17, -0.15);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda top wall
+glPushMatrix();
+glTranslatef(0, 0.43, 0);
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(102, 51, 0);
+    glVertex3f(-0.1, 0.07, -0.15);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.55, 0.07, -0.15);
+    glVertex3f(-0.55, 0.17, -0.15);
+    glVertex3f(-0.55, 0.07, -1);
+    glVertex3f(-0.55, 0.17, -1);
+    glVertex3f(0.55, 0.07, -1);
+    glVertex3f(0.55, 0.17, -1);
+    glVertex3f(0.55, 0.07, -0.15);
+    glVertex3f(0.55, 0.17, -0.15);
+    glVertex3f(0.1, 0.07, -0.15);
+    glVertex3f(0.1, 0.17, -0.15);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front left window
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(204, 204, 163);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.55, 0.17, -0.15);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.55, 0.5, -0.15);
+    glVertex3f(-0.4, 0.46, -0.15);
+    glVertex3f(-0.1, 0.5, -0.15);
+    glVertex3f(-0.15, 0.46, -0.15);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front right window
+glPushMatrix();
+glRotatef(180, 0, 1, 0);
+glTranslatef(0, 0, 0.30);
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(204, 204, 163);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.55, 0.17, -0.15);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.55, 0.5, -0.15);
+    glVertex3f(-0.4, 0.46, -0.15);
+    glVertex3f(-0.1, 0.5, -0.15);
+    glVertex3f(-0.15, 0.46, -0.15);
+    glVertex3f(-0.1, 0.17, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front left windowsill
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(102, 51, 0);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.15, 0.21, -0.05);
+    glVertex3f(-0.4, 0.21, -0.05);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front right windowsill
+glPushMatrix();
+glTranslatef(0.55, 0, 0);
+glBegin(GL_QUADS);
+    glColor3ub(102, 51, 0);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.15, 0.21, -0.05);
+    glVertex3f(-0.4, 0.21, -0.05);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front left window doors
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(102, 26, 0);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.4, 0.46, -0.15);
+    glVertex3f(-0.356, 0.46, -0.05);
+    glVertex3f(-0.356, 0.21, -0.05);
+
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.15, 0.46, -0.15);
+    glVertex3f(-0.194, 0.46, -0.05);
+    glVertex3f(-0.194, 0.21, -0.05);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//front right window doors
+glPushMatrix();
+glTranslatef(0.55, 0, 0);
+glBegin(GL_QUADS);
+    glColor3ub(102, 26, 0);
+    glVertex3f(-0.4, 0.21, -0.15);
+    glVertex3f(-0.4, 0.46, -0.15);
+    glVertex3f(-0.356, 0.46, -0.05);
+    glVertex3f(-0.356, 0.21, -0.05);
+
+    glVertex3f(-0.15, 0.21, -0.15);
+    glVertex3f(-0.15, 0.46, -0.15);
+    glVertex3f(-0.194, 0.46, -0.05);
+    glVertex3f(-0.194, 0.21, -0.05);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda middle wall
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(204, 204, 163);
+    glVertex3f(-0.55, 0.17, -0.15);
+    glVertex3f(-0.55, 0.5, -0.15);
+    glColor3ub(184, 184, 147);
+    glVertex3f(-0.55, 0.17, -1);
+    glVertex3f(-0.55, 0.5, -1);
+    glVertex3f(0.55, 0.17, -1);
+    glVertex3f(0.55, 0.5, -1);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//pagoda side window
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(184, 184, 147);
+    glVertex3f(0.55, 0.17, -1);
+    glVertex3f(0.55, 0.21, -0.9);
+    glVertex3f(0.55, 0.5, -1);
+    glVertex3f(0.55, 0.46, -0.9);
+    glColor3ub(204, 204, 163);
+    glVertex3f(0.55, 0.5, -0.15);
+    glVertex3f(0.55, 0.46, -0.25);
+    glVertex3f(0.55, 0.17, -0.15);
+    glVertex3f(0.55, 0.21, -0.25);
+    glColor3ub(184, 184, 147);
+    glVertex3f(0.55, 0.17, -1);
+    glVertex3f(0.55, 0.21, -0.9);
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//side window grid
+glPushMatrix();
+glBegin(GL_QUADS);
+    glColor3ub(102, 26, 0);
+    for(GLfloat i=-0.25; i>-0.9; i-=.1)
+    {
+        glVertex3f(0.55, 0.21, i);
+        glVertex3f(0.55, 0.46, i);
+        glVertex3f(0.55, 0.46, i-0.05);
+        glVertex3f(0.55, 0.21, i-0.05);
+    }
+glEnd();
+glLoadIdentity();
+glPopMatrix();
+
+//road
+glPushMatrix();
+glBegin(GL_QUAD_STRIP);
+    glColor3ub(138, 92, 46);
+    glVertex3f(0.1, 0, -0.15);
+    glVertex3f(-0.1, 0, -0.15);
+    glVertex3f(0.1, 0, 0.3);
+    glVertex3f(-0.1, 0, 0.3);
+    glVertex3f(0.2, 0, 0.5);
+    glVertex3f(0.0, 0, 0.5);
+    glVertex3f(0.2, 0, 1);
+    glVertex3f(0.0, 0, 1);
 glEnd();
 glLoadIdentity();
 glPopMatrix();
@@ -573,23 +793,23 @@ void idle()
 
     if (skeys[0])
     {
-        track[0] -= trackSpeed;
+        track[0] += trackSpeed;
         glutPostRedisplay();
     }
 
     if (skeys[3])
     {
-        track[0] += trackSpeed;
+        track[0] -= trackSpeed;
         glutPostRedisplay();
     }
     if (skeys[1])
     {
-        track[1] += trackSpeed;
+        track[1] -= trackSpeed;
         glutPostRedisplay();
     }
     if (skeys[2])
     {
-        track[1] -= trackSpeed;
+        track[1] += trackSpeed;
         glutPostRedisplay();
     }
 
@@ -651,7 +871,7 @@ void init(void)
     GLfloat mat_ambient[] = {0.2, 0.2, 0.2, 1.0};
     GLfloat mat_diffuse[] = {.8, .8, .8, 1.0};
     GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
-    GLfloat mat_shininess[] = {60.0};
+    GLfloat mat_shininess[] = {70.0};
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
